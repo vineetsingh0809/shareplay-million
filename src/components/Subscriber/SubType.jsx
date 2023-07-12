@@ -1,67 +1,8 @@
-// import React, { useState } from "react";
-
-// const SubType = () => {
-//   const [normalSub, setNormalSub] = useState(true);
-//   const [goldSub, setGoldSub] = useState(false);
-//   const [platSub, setPlatSub] = useState(false);
-
-//   const normalSubHandler = (event) => {
-//     setNormalSub(true);
-//     setGoldSub(false);
-//     setPlatSub(false);
-//   };
-//   const goldSubHandler = () => {
-//     setNormalSub(false);
-//     setGoldSub(true);
-//     setPlatSub(false);
-//   };
-//   const platinumSubHandler = () => {
-//     setNormalSub(false);
-//     setGoldSub(false);
-//     setPlatSub(true);
-//   };
-
-//   return (
-//     <div className="text-white py-5">
-//       <div
-//         className={`py-4 text-xl font-medium pl-7 ${
-//           normalSub ? "bg-[#222222]" : ""
-//         }`}
-//         onClick={normalSubHandler}
-//       >
-//         <p className="cursor-pointer">Subscriber</p>
-//         <p className="cursor-pointer">$4.95</p>
-//       </div>
-//       <div
-//         className={`py-4 text-xl font-medium pl-7 ${
-//           goldSub ? "bg-[#222222]" : ""
-//         }`}
-//         onClick={goldSubHandler}
-//       >
-//         <p className="cursor-pointer">Gold Subscriber</p>
-//         <p className="cursor-pointer">$9.95</p>
-//       </div>
-//       <div
-//         className={`py-4 text-xl font-medium pl-7 ${
-//           platSub ? "bg-[#222222]" : ""
-//         }`}
-//         onClick={platinumSubHandler}
-//       >
-//         <p className="cursor-pointer">Platinum Subscriber</p>
-//         <p className="cursor-pointer">$24.95</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SubType;
-
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { updateH2Value } from "../../actions/actions";
 
-let SubscriberValue = null;
-console.log(SubscriberValue)
-
-const SubType = () => {
+const SubType = ({ dispatch }) => {
   const [normalSub, setNormalSub] = useState({
     flag: true,
     value: null,
@@ -77,8 +18,8 @@ const SubType = () => {
 
   const normalSubHandler = (event) => {
     const normal = document.querySelector("#normal");
-    console.log(normal.innerHTML);
-    SubscriberValue = normal.innerHTML;
+    const item = normal.innerHTML;
+    dispatch(updateH2Value(item));
     setNormalSub({
       flag: true,
       value: normal.innerHTML,
@@ -94,16 +35,16 @@ const SubType = () => {
   };
 
   const goldSubHandler = (event) => {
-    const normal = document.querySelector("#gold");
-    console.log(normal.innerHTML);
-    SubscriberValue = normal.innerHTML;
+    const gold = document.querySelector("#gold");
+    const item = gold.innerHTML;
+    dispatch(updateH2Value(item));
     setNormalSub({
       flag: false,
       value: null,
     });
     setGoldSub({
       flag: true,
-      value: normal.innerHTML,
+      value: gold.innerHTML,
     });
     setPlatSub({
       flag: false,
@@ -112,9 +53,9 @@ const SubType = () => {
   };
 
   const platinumSubHandler = (event) => {
-    const normal = document.querySelector("#platinum");
-    console.log(normal.innerHTML);
-    SubscriberValue = normal.innerHTML;
+    const platinum = document.querySelector("#platinum");
+    const item = platinum.innerHTML;
+    dispatch(updateH2Value(item));
     setNormalSub({
       flag: false,
       value: null,
@@ -125,7 +66,7 @@ const SubType = () => {
     });
     setPlatSub({
       flag: true,
-      value: normal.innerHTML,
+      value: platinum.innerHTML,
     });
   };
 
@@ -168,4 +109,4 @@ const SubType = () => {
   );
 };
 
-export default SubType;
+export default connect()(SubType);

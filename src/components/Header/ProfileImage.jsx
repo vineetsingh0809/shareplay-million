@@ -1,4 +1,4 @@
-import { For, block } from "million/react";
+import { block } from "million/react";
 import React from "react";
 
 const ProfileImage = block(function profileImage() {
@@ -9,9 +9,6 @@ const ProfileImage = block(function profileImage() {
         alt=""
         className="w-full h-full block object-cover rounded-full"
       />
-      <ul>
-        <For each={[1, 2, 3, 4, 5]}>{(item) => <li>{item}</li>}</For>
-      </ul>
     </div>
   );
 });
