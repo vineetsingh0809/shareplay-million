@@ -22,7 +22,7 @@ const SubscribeButton = () => {
     <div className="mt-3">
       <button
         onClick={buttonClickedHandler}
-        className={`text-white px-10 py-3 rounded-full border-none outline-none ${
+        className={`text-white text-xl px-10 py-3 rounded-full border-none outline-none ${
           !subscribed ? "bg-red-500" : "bg-[#333333]"
         }`}
       >

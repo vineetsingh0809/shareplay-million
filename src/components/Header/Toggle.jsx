@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 
-const Toggle = () => {
+const Toggle = (props) => {
   const [month, setMonth] = useState(true);
   const [year, setYear] = useState(false);
+  const [type, setType] = useState("Monthly");
 
   const monthClickHandler = () => {
     setYear(false);
     setMonth(true);
+    setType("Monthly");
   };
 
   const yearClickHandler = () => {
     setMonth(false);
     setYear(true);
+    setType("Yearly");
   };
+
+  props.onData(type);
 
   return (
     <div className="w-60 h-10 border-2 rounded ml-6 mt-4 flex items-center justify-center">

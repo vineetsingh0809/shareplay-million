@@ -11,7 +11,7 @@ const Subscribers = () => {
         </h1>
         <SubType />
       </div>
-      <div className="mt-4 w-1/2 bg-[#222222]">
+      <div className="mt-4 w-1/2 bg-[#222222] rounded-2xl">
         <SubDescription />
       </div>
     </div>
