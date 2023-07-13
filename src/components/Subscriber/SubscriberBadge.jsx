@@ -1,3 +1,4 @@
+import { For } from "million/react";
 import React, { useState } from "react";
 
 const badgesData = [
@@ -79,17 +80,18 @@ const SubscriberBadge = () => {
       <h2 className="ml-5 text-white text-xl">
         12 Custom Emotes for comments and chat
       </h2>
-      <div className="flex items-center flex-wrap max-w-md">
-        {badgesData.map((item) => (
-          <img
-            key={item.id}
-            src={hoveredId === item.id ? item.gif : item.url}
-            alt={item.url}
-            className="ml-5 mt-5 rounded-full w-12 h-12"
-            onMouseEnter={() => handleMouseEnter(item.id)}
-            onMouseLeave={handleMouseLeave}
-          />
-        ))}
+      <div className="flex items-center justify-center flex-wrap max-w-md">
+        <For each={badgesData}>
+          {(item) => (
+            <img
+              src={hoveredId === item.id ? item.gif : item.url}
+              alt={item.url}
+              className="ml-5 mt-5 rounded-full w-12 h-12"
+              onMouseEnter={() => handleMouseEnter(item.id)}
+              onMouseLeave={handleMouseLeave}
+            />
+          )}
+        </For>
       </div>
     </div>
   );
