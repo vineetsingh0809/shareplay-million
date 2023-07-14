@@ -3,16 +3,12 @@ import "./Header.css";
 import TopHeader from "./TopHeader";
 import Banner from "./Banner";
 
-const Header = (props) => {
-  const handleHeader = (data) => {
-    props.onHome(data);
-  };
-
+const Header = () => {
   return (
-    <>
+    <div>
       <TopHeader />
-      <Banner onHeader={handleHeader} />
-    </>
+      <Banner />
+    </div>
   );
 };
 
