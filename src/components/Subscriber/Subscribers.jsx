@@ -1,18 +1,19 @@
 import React from "react";
 import SubType from "./SubType";
-import SubDescription from "./SubDescription";
+import TopSubDesc from "./TopSubDesc";
+import ChannelInfo from "./ChannelInfo";
 
 const Subscribers = () => {
   return (
     <div className="flex bg-gray-600">
       <div className="pt-14 w-1/2">
-        <h1 className="text-2xl font-medium text-yellow-400 ml-7">
-          Join this channel to get access to <br /> community perks
-        </h1>
+        <ChannelInfo />
         <SubType />
       </div>
       <div className="mt-4 w-1/2 bg-[#222222] rounded-2xl">
-        <SubDescription />
+        <div className="px-6 py-4">
+          <TopSubDesc />
+        </div>
       </div>
     </div>
   );
