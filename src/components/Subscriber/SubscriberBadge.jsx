@@ -19,7 +19,7 @@ const SubscriberBadge = () => {
     <div className="mt-5">
       <CustomeEmotesNumberPara />
       <div className="flex items-center justify-center flex-wrap max-w-md">
-        <For each={badgesURL}>
+        <For each={badgesURL.monthlyBadge}>
           {(item) => (
             <ImageBadgeComponent
               imgSrc={hoveredId === item.id ? item.gif : item.url}
