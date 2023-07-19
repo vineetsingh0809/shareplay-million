@@ -52,22 +52,34 @@ const SubType = ({ dispatch }) => {
         SubType={subType.NormalSubscriber}
         key={"1"}
         id={"normal"}
+        divClassName={"py-4 text-xl font-medium pl-7"}
+        divClassNameIfTrue={"bg-[#222222]"}
+        divClassNameIfFalse={""}
+        pClassName={"cursor-pointer"}
       />
       <SubscriberType
         value={"$9.95"}
-        SubscriberType={"Subscriber"}
+        SubscriberType={"Gold Subscriber"}
         onClick={goldSubHandler}
         SubType={subType.GoldSubscriber}
         key={"2"}
         id={"gold"}
+        divClassName={"py-4 text-xl font-medium pl-7"}
+        divClassNameIfTrue={"bg-[#222222]"}
+        divClassNameIfFalse={""}
+        pClassName={"cursor-pointer"}
       />
       <SubscriberType
         value={"$24.95"}
-        SubscriberType={"Subscriber"}
+        SubscriberType={"Platinum Subscriber"}
         onClick={platinumSubHandler}
         SubType={subType.PlatinumSubscriber}
         key={"3"}
         id={"platinum"}
+        divClassName={"py-4 text-xl font-medium pl-7"}
+        divClassNameIfTrue={"bg-[#222222]"}
+        divClassNameIfFalse={""}
+        pClassName={"cursor-pointer"}
       />
     </div>
   );
