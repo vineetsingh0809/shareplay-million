@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ToggleComponent from "./ToggleComponent";
+import { block } from "million/react";
 
-const Toggle = (props) => {
+const Toggle = block(function ToggleSec() {
   const [month, setMonth] = useState(true);
   const [year, setYear] = useState(false);
 
@@ -41,6 +42,6 @@ const Toggle = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default Toggle;

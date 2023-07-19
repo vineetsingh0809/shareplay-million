@@ -1,19 +1,30 @@
+import { block } from "million/react";
 import React from "react";
 
-const SubscriberType = ({ value, onClick, SubType, SubscriberType, id }) => {
+const SubscriberType = block(function SubscriberType({
+  value,
+  onClick,
+  SubType,
+  SubscriberType,
+  id,
+  divClassName,
+  divClassNameIfTrue,
+  divClassNameIfFalse,
+  pClassName
+}) {
   return (
     <div
-      className={`py-4 text-xl font-medium pl-7 ${
-        SubType ? "bg-[#222222]" : ""
+      className={`${divClassName} ${
+        SubType ? divClassNameIfTrue : divClassNameIfFalse
       }`}
       onClick={onClick}
     >
-      <p className="cursor-pointer">{SubscriberType}</p>
-      <p id={id} className="cursor-pointer">
+      <p className={pClassName}>{SubscriberType}</p>
+      <p id={id} className={pClassName}>
         {value}
       </p>
     </div>
   );
-};
+});
 
 export default SubscriberType;

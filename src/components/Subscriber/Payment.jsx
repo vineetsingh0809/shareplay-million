@@ -1,7 +1,8 @@
+import { block } from "million/react";
 import React from "react";
 import { connect } from "react-redux";
 
-const Payment = ({ h2Value }) => {
+const Payment = block(function Payment({ h2Value }) {
   return (
     <div>
       <h2 className="text-yellow-400 text-xl">{`${h2Value}/month`}</h2>
@@ -10,7 +11,7 @@ const Payment = ({ h2Value }) => {
       </p>
     </div>
   );
-};
+});
 
 const mapStateToProps = (state) => {
   return {

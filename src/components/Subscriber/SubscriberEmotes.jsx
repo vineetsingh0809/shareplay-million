@@ -1,10 +1,10 @@
-import { For } from "million/react";
+import { For, block } from "million/react";
 import React, { useState } from "react";
 import ImageBadgeComponent from "./ImageBadgeComponent";
 import { badgesURL } from "../badgeData";
 import CustomeEmotesNumberPara from "./CustomeEmotesNumberPara";
 
-const SubscriberBadge = () => {
+const SubscriberEmote = block(function SubscriberEmote() {
   const [hoveredId, setHoveredId] = useState(null);
 
   const handleMouseEnter = (id) => {
@@ -33,6 +33,6 @@ const SubscriberBadge = () => {
       </div>
     </div>
   );
-};
+});
 
-export default SubscriberBadge;
+export default SubscriberEmote;
