@@ -1,19 +1,26 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { updateH2Value } from "../../actions/actions";
 import SubscriberType from "./SubscriberType";
+import { useAppContext } from "../../AppContext";
 
-const SubType = ({ dispatch }) => {
+const SubType = () => {
+  const { itemValue, setItemValue } = useAppContext();
+
   const [subType, setSubType] = useState({
     NormalSubscriber: true,
     GoldSubscriber: false,
     PlatinumSubscriber: false,
   });
 
-  const normalSubHandler = (event) => {
+  const { setSubscriberType } = useAppContext();
+
+  const normalSubHandler = () => {
     const normal = document.querySelector("#normal");
-    const item = normal.innerHTML;
-    dispatch(updateH2Value(item));
+    const normalSub = document.querySelector("#type-normal");
+    setSubscriberType(normalSub.innerHTML);
+    setItemValue({
+      ...itemValue,
+      normal: normal.innerHTML,
+    });
     setSubType({
       NormalSubscriber: true,
       GoldSubscriber: false,
@@ -21,10 +28,14 @@ const SubType = ({ dispatch }) => {
     });
   };
 
-  const goldSubHandler = (event) => {
+  const goldSubHandler = () => {
     const gold = document.querySelector("#gold");
-    const item = gold.innerHTML;
-    dispatch(updateH2Value(item));
+    const goldenSub = document.querySelector("#type-gold");
+    setSubscriberType(goldenSub.innerHTML);
+    setItemValue({
+      ...itemValue,
+      gold: gold.innerHTML,
+    });
     setSubType({
       NormalSubscriber: false,
       GoldSubscriber: true,
@@ -34,8 +45,12 @@ const SubType = ({ dispatch }) => {
 
   const platinumSubHandler = (event) => {
     const platinum = document.querySelector("#platinum");
-    const item = platinum.innerHTML;
-    dispatch(updateH2Value(item));
+    const platinumSub = document.querySelector("#type-platinum");
+    setSubscriberType(platinumSub.innerHTML);
+    setItemValue({
+      ...itemValue,
+      platinum: platinum.innerHTML,
+    });
     setSubType({
       NormalSubscriber: false,
       GoldSubscriber: false,
@@ -46,36 +61,39 @@ const SubType = ({ dispatch }) => {
   return (
     <div className="text-white py-5">
       <SubscriberType
-        value={"$4.95"}
+        value={itemValue.normal}
         SubscriberType={"Subscriber"}
         onClick={normalSubHandler}
         SubType={subType.NormalSubscriber}
         key={"1"}
-        id={"normal"}
+        valueId={"normal"}
+        typeId={"type-normal"}
         divClassName={"py-4 text-xl font-medium pl-7"}
         divClassNameIfTrue={"bg-[#222222]"}
         divClassNameIfFalse={""}
         pClassName={"cursor-pointer"}
       />
       <SubscriberType
-        value={"$9.95"}
+        value={itemValue.gold}
         SubscriberType={"Gold Subscriber"}
         onClick={goldSubHandler}
         SubType={subType.GoldSubscriber}
         key={"2"}
-        id={"gold"}
+        valueId={"gold"}
+        typeId={"type-gold"}
         divClassName={"py-4 text-xl font-medium pl-7"}
         divClassNameIfTrue={"bg-[#222222]"}
         divClassNameIfFalse={""}
         pClassName={"cursor-pointer"}
       />
       <SubscriberType
-        value={"$24.95"}
+        value={itemValue.platinum}
         SubscriberType={"Platinum Subscriber"}
         onClick={platinumSubHandler}
         SubType={subType.PlatinumSubscriber}
         key={"3"}
-        id={"platinum"}
+        valueId={"platinum"}
+        typeId={"type-platinum"}
         divClassName={"py-4 text-xl font-medium pl-7"}
         divClassNameIfTrue={"bg-[#222222]"}
         divClassNameIfFalse={""}
@@ -85,4 +103,4 @@ const SubType = ({ dispatch }) => {
   );
 };
 
-export default connect()(SubType);
+export default SubType;

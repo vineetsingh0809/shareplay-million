@@ -1,19 +1,34 @@
 import React, { useState } from "react";
 import ToggleComponent from "./ToggleComponent";
-import { block } from "million/react";
+import { useAppContext } from "../../AppContext";
 
-const Toggle = block(function ToggleSec() {
+const Toggle = () => {
+  const { setToggleStatus } = useAppContext();
+  const { setItemValue } = useAppContext();
+
   const [month, setMonth] = useState(true);
   const [year, setYear] = useState(false);
 
   const monthClickHandler = () => {
     setYear(false);
     setMonth(true);
+    setToggleStatus(true);
+    setItemValue({
+      normal: "$4.95",
+      gold: "$9.95",
+      platinum: "$24.95",
+    });
   };
 
   const yearClickHandler = () => {
     setMonth(false);
     setYear(true);
+    setToggleStatus(false);
+    setItemValue({
+      normal: "$48.99",
+      gold: "$108.99",
+      platinum: "$288.99",
+    });
   };
 
   return (
@@ -42,6 +57,6 @@ const Toggle = block(function ToggleSec() {
       </div>
     </div>
   );
-});
+};
 
 export default Toggle;
