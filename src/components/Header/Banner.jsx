@@ -2,9 +2,9 @@ import React from "react";
 import ProfileImage from "./ProfileImage";
 import Toggle from "./Toggle";
 import ChannelName from "./ChannelName";
-import { block } from "million/react";
+// import { block } from "million/react";
 
-const Banner = block(function BannerSec() {
+const Banner = () =>  {
   return (
     <div className="relative mt-4 box border-2">
       <ProfileImage />
@@ -14,6 +14,6 @@ const Banner = block(function BannerSec() {
       </div>
     </div>
   );
-});
+};
 
 export default Banner;

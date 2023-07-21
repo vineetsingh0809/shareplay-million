@@ -6,7 +6,8 @@ const SubscriberType = block(function SubscriberType({
   onClick,
   SubType,
   SubscriberType,
-  id,
+  valueId,
+  typeId,
   divClassName,
   divClassNameIfTrue,
   divClassNameIfFalse,
@@ -19,8 +20,8 @@ const SubscriberType = block(function SubscriberType({
       }`}
       onClick={onClick}
     >
-      <p className={pClassName}>{SubscriberType}</p>
-      <p id={id} className={pClassName}>
+      <p id={typeId} className={pClassName}>{SubscriberType}</p>
+      <p id={valueId} className={pClassName}>
         {value}
       </p>
     </div>
