@@ -1,6 +1,6 @@
-import HomePage from "./components/HomePage";
+import HomePage from "./pages/HomePage";
 import { desktopClasses, mobileClasses } from "./AppClasses";
-import HomepageMob from "./components/MobileComponents/HomepageMob";
+import HomepageMob from "./pages/HomepageMob";
 const App = () => {
   return (
     <>

@@ -1,8 +1,8 @@
 import { For, block } from "million/react";
 import React, { useState } from "react";
 import ImageBadgeComponent from "./ImageBadgeComponent";
-import { badgesURL } from "../badgeData";
-import CustomeEmotesNumberPara from "./CustomeEmotesNumberPara";
+import { badgesURL } from "../../Data/badgeData";
+import CustomeEmotesNumberPara from "../Subscriber/CustomeEmotesNumberPara";
 
 const SubscriberEmote = block(function SubscriberEmote() {
   const [hoveredId, setHoveredId] = useState(null);

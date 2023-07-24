@@ -1,7 +1,7 @@
 import React from "react";
 import BadgeComponent from "./BadgeComponent";
 // import { For } from "million/react";
-import { ChatMessageData } from "./chatData";
+import { ChatMessageData } from "../../Data/chatData";
 
 const BodyMob = () => {
   return (

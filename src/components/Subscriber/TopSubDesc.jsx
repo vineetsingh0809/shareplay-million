@@ -1,8 +1,8 @@
 import React from "react";
-import SubscribeButton from "./SubscribeButton";
-import SubscriberEmote from "./SubscriberEmotes";
+import SubscribeButton from "../Button/SubscribeButton";
+import SubscriberEmote from "../Badges and Emotes/SubscriberEmotes";
 import Payment from "./Payment";
-import SubscriberBadges from "./SubscriberBadges";
+import SubscriberBadges from "../Badges and Emotes/SubscriberBadges";
 import SharePlayBoosts from "./SharePlayBoosts";
 
 const TopSubDesc = () => {
