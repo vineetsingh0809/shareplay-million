@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { useAppContext } from "../../Context-Provider/AppContext";
 
 const HeaderMob = () => {
-  const [hamburgerMenu, setHamburgerMenu] = useState(false);
+  const { hamburgerMenu, setHamburgerMenu } = useAppContext();
 
   const clickHandler = () => {
     setHamburgerMenu(!hamburgerMenu);

@@ -1,5 +1,5 @@
-import Header from "./Header/Header";
-import Subscribers from "./Subscriber/Subscribers";
+import Header from "../components/Header/Header";
+import Subscribers from "../components/Subscriber/Subscribers";
 
 const HomePage = () => {
   return (

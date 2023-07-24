@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileImage from "./ProfileImage";
-import Toggle from "./Toggle";
+import Toggle from "../Toggle/Toggle";
 import ChannelName from "./ChannelName";
 // import { block } from "million/react";
 

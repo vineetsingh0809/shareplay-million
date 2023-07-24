@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SubscriberType from "./SubscriberType";
-import { useAppContext } from "../../AppContext";
+import { useAppContext } from "../../Context-Provider/AppContext";
 
 const SubType = () => {
   const { itemValue, setItemValue } = useAppContext();

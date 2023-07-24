@@ -1,19 +1,28 @@
 import { block } from "million/react";
-import React from "react";
-import { useAppContext } from "../../AppContext";
+import React, { useEffect, useState } from "react";
+import { useAppContext } from "../../Context-Provider/AppContext";
+import { toggleData } from "../../Data/toggleData";
 
 const Payment = block(function Payment() {
+  const [duration, setDuration] = useState("");
   const { itemValue } = useAppContext();
   const { toggleStatus } = useAppContext();
   const { subscriberType } = useAppContext();
 
+  useEffect(() => {
+    const matchedData = toggleData.find((item) => item.data === toggleStatus);
+    if (matchedData) {
+      setDuration(matchedData.duration);
+    }
+  }, [toggleStatus]);
+
   const Value =
     subscriberType === "Subscriber"
-      ? `${itemValue.normal}/${toggleStatus ? "month" : "year"}`
+      ? `${itemValue.normal}/${duration}`
       : subscriberType === "Gold Subscriber"
-      ? `${itemValue.gold}/${toggleStatus ? "month" : "year"}`
+      ? `${itemValue.gold}/${duration}`
       : subscriberType === "Platinum Subscriber"
-      ? `${itemValue.platinum}/${toggleStatus ? "month" : "year"}`
+      ? `${itemValue.platinum}/${duration}`
       : "";
 
   return (
